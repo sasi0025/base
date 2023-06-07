@@ -7,4 +7,8 @@ driver.find_element(By.NAME,"name").send_keys("sasi")
 driver.find_element(By.NAME,"email").send_keys("sasij4565@gmail.com")
 driver.find_element(By.ID,"exampleInputPassword1").send_keys("sasi@1234")
 driver.find_element(By.ID,"exampleCheck1").click()
+driver.find_element(By.XPATH,"//input[@class='form-control']").click()
+driver.find_element(By.XPATH,"//input[@type='submit' ]").click()
+
+
 
