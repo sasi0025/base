@@ -13,7 +13,9 @@ for i in on: # here we runnig loof to search the deseved word if the loop finds 
     if i.text=='India':
         i.click()
         break
-    else:
-        print("no such word found")
+
+assert driver.find_element(By.XPATH,"//input[@placeholder='Type to Select Countries']").get_attribute("value")=="India"
+# when we the value is preloaded then to extract the value we use text() method
+# if the value added by us dynamically then we need to use the get attribute () method and need to pass the value
 
 
