@@ -18,3 +18,5 @@ driver.find_element(By.XPATH,"//input[@type='submit' ]").click()
 #if the dropdon is static then we use Select class to automate the dropdowns
 
 
+
+

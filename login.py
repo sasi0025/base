@@ -7,7 +7,7 @@ class BaseTest:
     def __init__(self):
         self.driver = webdriver.Chrome()
 
-    def login(self, username, password,OTP):
+    def login(self, username, password):
         self.driver.get("https://preprod-giverly-admin.neokredx.com/login")  # Replace with your login URL
 
         # Enter username and password
@@ -20,13 +20,11 @@ class BaseTest:
         self.driver.find_element(By.XPATH, "//button[@data-testid='button']").click()
         self.driver.get_screenshot_as_file('./png/lo.png')
         time.sleep(2)
-        self.driver.find_element(By.XPATH,"//input[@type='password']").send_keys(OTP)
+
+        self.driver.find_element(By.XPATH,"//input[@type='password']")
         time.sleep(2)
         self.driver.find_element(By.XPATH,"//button[@data-testid='button']").click()
         time.sleep(2)
-    #def logout(self):
-        # Perform logout steps
-        #self.driver.find_element(By.XPATH, "//button[text()='Logout']").click()  # Replace with your logout button locator
 
     def run_test(self):
         # Usage example
@@ -34,5 +32,5 @@ class BaseTest:
 
 
 ob=BaseTest()
-ob.login("sasikumar@neokred.tech","Neokred@123","123456")
+ob.login("sasikumar@neokred.tech","Neokred@123")
 

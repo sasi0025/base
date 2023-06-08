@@ -2,7 +2,6 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import select
 
 driver=webdriver.Chrome()
 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
