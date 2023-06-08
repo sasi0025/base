@@ -1,16 +1,46 @@
-# This is a sample Python script.
+import re
+from imapclient import IMAPClient
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def get_otp_from_mail(username, password):
+    # Connect to the mail server (Gmail in this example)
+    server = IMAPClient('imap.gmail.com', ssl=True)
+    server.login(username, password)
 
+    # Select the mailbox to search for OTP emails
+    server.select_folder('INBOX')
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    # Search for emails with the OTP keyword in the subject or body
+    otp_search_criteria = ['SUBJECT "OTP"']
+    messages = server.search(otp_search_criteria)
 
+    otp = None
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    # Retrieve the latest OTP email
+    if messages:
+        latest_message_id = messages[-1]
+        response = server.fetch(latest_message_id, ['BODY[]'])
+        message_body = response[latest_message_id][b'BODY[]'].decode('utf-8')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        # Extract the OTP from the email body using a regular expression
+        otp_pattern = r'\b\d{6}\b'  # Assuming the OTP is a 6-digit number
+        match = re.search(otp_pattern, message_body)
+
+        if match:
+            otp = match.group()
+
+    # Disconnect from the mail server
+    server.logout()
+
+    return otp
+
+# Provide your Gmail credentials
+email_username = 'sasikumar@neokred.tech'
+email_password = '9047317209@sasi'
+
+# Retrieve the OTP from the mail
+otp = get_otp_from_mail(email_username, email_password)
+
+if otp:
+    print("OTP found:", otp)
+else:
+    print("No OTP found in the mail.")
