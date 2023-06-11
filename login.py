@@ -9,7 +9,7 @@ class BaseTest:
         self.driver = webdriver.Chrome()
 
     def login(self, username, password):
-        self.driver.get("https://giverly-admin.neokredx.com/login")
+        self.driver.get("https://preprod-giverly-admin.neokredx.com/login")
 
 
         self.driver.find_element(By.XPATH, "//input[@placeholder='Email']").send_keys(username)
@@ -65,12 +65,9 @@ class BaseTest:
         mail.logout()
 
         return otp
-    def clint(self,):
 
-        self.driver.find_element(By.XPATH,"//p[text()='client list']").click()
-        self.driver.implicitly_wait(5)
-        self.driver.find_element(By.XPATH,"(//button[@data-testid='button'])[1]").click()
-        self.driver.find_element(By.XPATH,"//input[@placeholder='Company name']").send_keys("GIVERLY INDIA PRIVATE LIMITED")
+
+
 
 
 

@@ -41,7 +41,6 @@ def get_otp_from_mail(username, password):
 email_username = 'sasikumar@neokred.tech'
 email_password = '9047317209@sasi'
 
-
 otp = get_otp_from_mail(email_username, email_password)
 
 if otp:

@@ -33,7 +33,7 @@ discountamount=float(driver.find_element(By.CSS_SELECTOR,".discountAmt").text)
 discountpercentage=(driver.find_element(By.CSS_SELECTOR,".discountPerc").text)
 #assert  discountamount < totalamount
 if discountamount < totalamount :
-    print (" discount applied for the promo code is :  "+ discountpercentage)
+    print ("discount applied for the promo code is :  "+ discountpercentage)
 else:
     print("no promo code applied")
 
