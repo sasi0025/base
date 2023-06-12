@@ -2,6 +2,7 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 driver=webdriver.Chrome()
 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
@@ -39,6 +40,15 @@ else:
 
 driver.find_element(By.XPATH,"//button[text()='Place Order']").click()
 time.sleep(2)
+country=driver.find_elements(By.XPATH,"//div[@class='wrapperTwo']//div//select")
+for c in country:
+    if c.get_attribute("value") == 'Albania':
+     c.click()
+
+print(c.text)
 driver.find_element(By.XPATH,"//input[@class='chkAgree']").click()
 time.sleep(2)
+driver.find_element(By.XPATH,"//button[normalize-space()='Proceed']").click()
+driver.get_screenshot_as_file("ekart.png")
+
 

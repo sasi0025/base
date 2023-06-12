@@ -30,29 +30,29 @@ class WebBrowserAutomation(otp):
 
 
 
-    # def register(self, username, password, email):
-    #     self.driver.get("https://example.com/register")
-    #     username_input = self.driver.find_element_by_id("username")
-    #     password_input = self.driver.find_element_by_id("password")
-    #     email_input = self.driver.find_element_by_id("email")
-    #
-    #     username_input.send_keys(username)
-    #     password_input.send_keys(password)
-    #     email_input.send_keys(email)
-    #     email_input.send_keys(Keys.ENTER)
-    #
-    #     # Wait for the registration process to complete
-    #     WebDriverWait(self.driver, 10).until(
-    #         EC.presence_of_element_located((By.ID, "dashboard"))
-    #     )
-    #
-    # def add_employee(self, employee_data):
-    #     self.driver.get("https://example.com/dashboard")
-    #     # Find the relevant elements and perform actions to add an employee
-    #
-    # def send_to_employee(self, employee_id, message):
-    #     self.driver.get(f"https://example.com/employees/{employee_id}")
-    #     # Find the relevant elements and perform actions to send a message to the employee
+    def register(self, username, password, email):
+        self.driver.get("https://example.com/register")
+        username_input = self.driver.find_element_by_id("username")
+        password_input = self.driver.find_element_by_id("password")
+        email_input = self.driver.find_element_by_id("email")
+
+        username_input.send_keys(username)
+        password_input.send_keys(password)
+        email_input.send_keys(email)
+        email_input.send_keys(Keys.ENTER)
+
+        # Wait for the registration process to complete
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "dashboard"))
+        )
+
+    def add_employee(self, employee_data):
+        self.driver.get("https://example.com/dashboard")
+        # Find the relevant elements and perform actions to add an employee
+
+    def send_to_employee(self, employee_id, message):
+        self.driver.get(f"https://example.com/employees/{employee_id}")
+        # Find the relevant elements and perform actions to send a message to the employee
 
 # Usage example:
 
