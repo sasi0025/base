@@ -20,7 +20,7 @@ def setup(request):
     elif browser_name == "IE":
         driver = webdriver.Ie()
 
-    driver.get("")
+    driver.get("https://preprod-giverly-admin.neokredx.com/login")
     driver.maximize_window()
 
     request.cls.driver = driver

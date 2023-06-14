@@ -9,6 +9,7 @@ class BaseTest:
         self.driver = webdriver.Chrome()
 
     def login(self, username, password):
+        self.driver.implicitly_wait()
         self.driver.get("https://preprod-giverly-admin.neokredx.com/login")
 
 

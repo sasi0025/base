@@ -50,5 +50,6 @@ driver.find_element(By.XPATH,"//input[@class='chkAgree']").click()
 time.sleep(2)
 driver.find_element(By.XPATH,"//button[normalize-space()='Proceed']").click()
 driver.get_screenshot_as_file("ekart.png")
+driver.implicitly_wait()
 
 
